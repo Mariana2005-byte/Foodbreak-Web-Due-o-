@@ -1,0 +1,476 @@
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Indie+Flower&family=Odibee+Sans&display=swap');
+
+:root {
+    --colorSabor: #ede58d;
+    --textoOscuro: #3f555c;
+    --fondoClaro: #f4f6f7;
+    --rosaAuth: #f3e5eb;
+    --verdeOk: #e2f0d9;
+    --grisBordes: #7f7f7f;
+    --azulFondo: #d9e1f2;
+}
+
+body {
+    font-family: "Chelsea Market", system-ui;
+    margin: 0; 
+    background: var(--fondoClaro);
+    opacity: 0;
+    animation: cargarPantalla 0.6s ease-out forwards;
+}
+
+@keyframes cargarPantalla {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#seccionAutenticacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.cajaValidacion {
+    background: var(--rosaAuth);
+    padding: 45px 40px;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 420px;
+    width: 85%;
+    transition: all 0.3s ease;
+}
+
+.cajaValidacion h2 {
+    font-size: 32px;
+    margin: 0 0 5px 0;
+    color: #000000;
+    font-weight: normal;
+}
+
+.lineaSeparador {
+    width: 100%;
+    height: 1px;
+    background-color: var(--grisBordes);
+    margin-bottom: 45px;
+}
+
+.campoFormulario {
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.campoFormulario input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--grisBordes);
+    padding: 8px 0;
+    font-family: "Chelsea Market", system-ui;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.campoFormulario input:focus {
+    outline: none;
+    border-bottom-color: #000;
+}
+
+.recuperarClave {
+    display: block;
+    text-align: left;
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+.btnFormulario {
+    background-color: var(--verdeOk);
+    color: #000000;
+    border: none;
+    padding: 12px 0;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: "Chelsea Market", system-ui;
+    transition: background-color 0.2s;
+    margin-bottom: 25px;
+}
+
+.btnFormulario:hover {
+    background-color: #d2e4c8;
+}
+
+.cambioPantalla {
+    font-size: 14px;
+    color: #000000;
+    margin: 0;
+}
+
+.cambioPantalla a {
+    color: #ff3333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+header { 
+    background-image: url('img/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    color: rgb(223, 225, 97); 
+    padding: 2rem 1rem; 
+    text-align: center; 
+}
+
+h1 {
+    font-size: 80px;
+    margin: 20px 0 5px 0;
+}
+
+.bajadaTitulo {
+    margin: 0;
+    font-family: "Indie Flower", cursive;
+    font-size: 24px;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+
+#barraUsuario {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#fichaUsuario {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 20px;
+    border-radius: 30px;
+    color: white;
+}
+
+.focoActivo {
+    width: 10px;
+    height: 10px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+}
+
+#btnSalir {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: "Chelsea Market", system-ui;
+}
+
+.bloqueDashboard {
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 30px;
+}
+
+.tarjetaDashboard {
+    background: white;
+    flex: 1;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.columnaReportes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.tarjetaDashboard h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: var(--textoOscuro);
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.inputFormulario {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.inputFormulario label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+.inputFormulario input, .inputFormulario select, .inputFormulario textarea {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: "Chelsea Market", system-ui;
+    font-size: 14px;
+}
+
+.inputFormulario input:focus, .inputFormulario select:focus, .inputFormulario textarea:focus {
+    outline: none;
+    border-color: var(--textoOscuro);
+}
+
+.columnasInputs {
+    display: flex;
+    gap: 20px;
+}
+
+.columnasInputs .inputFormulario {
+    flex: 1;
+}
+
+.btnGuardar {
+    background-color: var(--textoOscuro);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: "Chelsea Market", system-ui;
+    transition: background-color 0.2s;
+}
+
+.btnGuardar:hover {
+    background-color: #2c3e50;
+}
+
+.cajaCuentas {
+    background-color: var(--azulFondo);
+}
+
+.tarjetaPrecio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0 10px 0;
+    border-left: 6px solid #2ecc71;
+}
+
+.infoDinero {
+    font-size: 18px;
+    color: #333;
+}
+
+.montoTotal {
+    font-size: 36px;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.leyendaInformativa {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+.vacioMensaje {
+    text-align: center;
+    padding: 30px 0;
+    color: #999;
+    font-family: "Indie Flower", cursive;
+    font-size: 18px;
+}
+
+.listaHistorialActiva {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.tarjetaVenta {
+    display: flex;
+    background: #f8fafc;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.datosVentaIzquierda {
+    display: flex;
+    flex-direction: column;
+}
+
+.codigoPedido {
+    font-size: 12px;
+    color: #7f8c8d;
+    font-weight: bold;
+}
+
+.descripcionPedido {
+    font-size: 15px;
+    color: #2c3e50;
+}
+
+.datosVentaDerecha {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.montoPedido {
+    font-weight: bold;
+}
+
+.tiempoPedido {
+    font-size: 11px;
+    color: #95a5a6;
+}
+
+.ubicacionPedido {
+    font-family: "Indie Flower", cursive;
+    font-size: 14px;
+    color: #2c3e50;
+    background: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border-left: 3px solid #3498db;
+    word-break: break-all;
+    margin-top: 2px;
+}
+
+.btnTerminarPedido {
+    background: #2ecc71;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: "Chelsea Market", system-ui;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    align-self: flex-end;
+    margin-top: 5px;
+}
+
+.btnTerminarPedido:hover {
+    background: #27ae60;
+}
+
+.contenedorInventario {
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.contenedorInventario h2 {
+    color: var(--textoOscuro);
+    font-size: 28px;
+}
+
+.gridCatalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.inventarioVacio {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px;
+    background: #fff;
+    border-radius: 12px;
+    color: #7f8c8d;
+    font-family: "Indie Flower", cursive;
+    font-size: 20px;
+}
+
+.tarjetaFichaAdmin {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    position: relative;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+
+.fotoItemAdmin {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 25px;
+}
+
+.tagCategoria {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--colorSabor);
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    color: #555;
+}
+
+.tarjetaFichaAdmin h3 {
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+}
+
+.reseñaAdmin {
+    font-family: "Indie Flower", cursive;
+    color: #555;
+    font-size: 16px;
+    margin: 0 0 15px 0;
+}
+
+.valoresFichaAdmin {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    border-top: 1px dashed #eee;
+    padding-top: 10px;
+}
+
+.ocultar {
+    display: none !important;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+footer div { flex: 1; min-width: 200px; }

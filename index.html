@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | FoodBreak</title>
+    <link rel="icon" type="image/png" href="icono.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="seccionAutenticacion">
+        <div class="cajaValidacion" id="bloqueIngreso">
+            <h2>Inicio de sesión</h2>
+            <div class="lineaSeparador"></div>
+            
+            <div class="campoFormulario">
+                <input type="text" id="usuarioIngreso" placeholder="Nombre de usuario" required>
+            </div>
+            
+            <div class="campoFormulario">
+                <input type="password" id="claveIngreso" placeholder="Contraseña" required>
+            </div>
+            
+            <a href="#" class="recuperarClave">¿Olvidó su contraseña?</a>
+            
+            <button class="btnFormulario" onclick="iniciarSesion()">Iniciar</button>
+            
+            <p class="cambioPantalla">Quiero hacer el <a href="#" onclick="verRegistro(event)">registro</a></p>
+        </div>
+
+        <div class="cajaValidacion ocultar" id="bloqueRegistro">
+            <h2>Crear Cuenta</h2>
+            <div class="lineaSeparador"></div>
+            
+            <div class="campoFormulario">
+                <input type="text" id="usuarioNuevo" placeholder="Crea un nombre de usuario" required>
+            </div>
+            
+            <div class="campoFormulario">
+                <input type="password" id="claveNueva" placeholder="Crea una contraseña" required>
+            </div>
+            
+            <button class="btnFormulario" style="background-color: #d9e1f2;" onclick="registrarUsuario()">Registrarse</button>
+            
+            <p class="cambioPantalla">¿Ya tienes cuenta? <a href="#" onclick="verLogin(event)">Inicia sesión</a></p>
+        </div>
+    </div>
+
+    <div id="panelPrincipal" class="ocultar">
+        <header>
+            <div id="barraUsuario">
+                <div id="fichaUsuario">
+                    <div class="focoActivo"></div>
+                    <span id="nombreAdmin">Administrador</span>
+                    <button id="btnSalir" onclick="cerrarSesion()">Salir</button>
+                </div>
+            </div>
+            <h1>FoodBreak Admin</h1>
+            <p class="bajadaTitulo">Gestión de Inventario, Ventas y Métricas Económicas</p>
+        </header>
+
+        <div class="bloqueDashboard">
+            
+            <section class="tarjetaDashboard">
+                <h2 id="tituloFormulario">Cargar Nuevo Producto</h2>
+                <form id="datosProducto" onsubmit="registrarProducto(event)">
+                    <input type="hidden" id="idInterno">
+
+                    <div class="inputFormulario">
+                        <label for="campoNombre">Nombre del Producto</label>
+                        <input type="text" id="campoNombre" placeholder="Ej. Volován de Pollo" required>
+                    </div>
+
+                    <div class="columnasInputs">
+                        <div class="inputFormulario">
+                            <label for="campoStock">Cantidad (Stock)</label>
+                            <input type="number" id="campoStock" min="0" placeholder="Ej. 20" required>
+                        </div>
+                        <div class="inputFormulario">
+                            <label for="campoPrecio">Precio ($)</label>
+                            <input type="number" id="campoPrecio" min="1" placeholder="Ej. 25" required>
+                        </div>
+                    </div>
+
+                    <div class="inputFormulario">
+                        <label for="campoCategoria">Categoría</label>
+                        <select id="campoCategoria">
+                            <option value="volovanes">Volovanes</option>
+                            <option value="hojaldras">Hojaldras</option>
+                            <option value="tortas">Tortas</option>
+                            <option value="burritos">Burritos</option>
+                            <option value="pizza">Pizza</option>
+                            <option value="bebidas">Bebidas</option>
+                            <option value="postres">Postres</option>
+                        </select>
+                    </div>
+
+                    <div class="inputFormulario">
+                        <label for="campoImagen">Imagen del Producto (URL o marcador)</label>
+                        <input type="text" id="campoImagen" placeholder="Ej. img/pollo.png (dejar vacío para genérico)">
+                    </div>
+
+                    <div class="inputFormulario">
+                        <label for="campoDescripcion">Descripción</label>
+                        <textarea id="campoDescripcion" rows="3" placeholder="Detalles de los ingredientes..." required></textarea>
+                    </div>
+
+                    <div style="display: flex; gap: 10px;">
+                        <button type="submit" id="btnGuardarForm" class="btnGuardar">Publicar Producto</button>
+                        <button type="button" id="btnCancelarEdicion" class="btnCancelar ocultar" style="background: #95a5a6;" onclick="cancelarEdicion()">Cancelar Edición</button>
+                    </div>
+                </form>
+            </section>
+
+            <div class="columnaReportes">
+                
+                <section class="tarjetaDashboard cajaCuentas">
+                    <h2>Métricas de Ganancias</h2>
+                    <div class="tarjetaPrecio">
+                        <span class="infoDinero">Ingresos Totales:</span>
+                        <span class="montoTotal">$<span id="totalGanancias">0.00</span></span>
+                    </div>
+                    <p class="leyendaInformativa">*Calculado automáticamente a partir de los pedidos finalizados.</p>
+                </section>
+
+                <section class="tarjetaDashboard">
+                    <h2>Pedidos Pendientes</h2>
+                    <div id="listaPendientes" class="vacioMensaje">
+                        No hay pedidos pendientes de procesamiento.
+                    </div>
+                </section>
+
+                <section class="tarjetaDashboard">
+                    <h2>Historial de Pedidos Completados</h2>
+                    <div id="listaCompletados" class="vacioMensaje">
+                        Aún no se han completado pedidos.
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <section class="contenedorInventario">
+            <h2>Inventario en Tienda Virtual</h2>
+            <main id="galeriaAdmin" class="gridCatalogo">
+            </main>
+        </section>
+
+        <footer>
+            <div class="bloquePie"><p>Soporte Técnico Interno</p></div>
+            <div class="bloquePie"><p>FoodBreak Corporativo &copy; 2026</p></div>
+            <div class="bloquePie"><p>Terminal de Control Principal</p></div>
+        </footer>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
