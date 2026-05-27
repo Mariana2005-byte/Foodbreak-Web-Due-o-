@@ -5,11 +5,12 @@ import { getDatabase, ref, set, onValue, push, remove, get } from "https://www.g
 const firebaseConfig = {
   apiKey: "AIzaSyDEU4aeYwiJePt6VRgmMDXUF1YwlTu2Cys",
   authDomain: "foodbreak-d0f8e.firebaseapp.com",
+  databaseURL: "https://foodbreak-d0f8e-default-rtdb.firebaseio.com",
   projectId: "foodbreak-d0f8e",
   storageBucket: "foodbreak-d0f8e.firebasestorage.app",
   messagingSenderId: "39767375461",
   appId: "1:39767375461:web:1f80e388c23dc83389108c",
-  databaseURL:"https://foodbreak-d0f8e-default-rtdb.firebaseio.com/",
+  databaseURL: "https://foodbreak-bfbcb-default-rtdb.firebaseio.com/"
 };
 
 const app = initializeApp(firebaseConfig);
